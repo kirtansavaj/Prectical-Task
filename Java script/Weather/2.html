@@ -1,0 +1,92 @@
+<!-- weather API -->
+<!-- https://www.weatherapi.com/my/ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #e3f2fd;
+            padding: 30px;
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #2196f3;
+            color: white;
+            cursor: pointer;
+        }
+
+        .weather-box {
+            margin: 30px auto 0;
+            padding: 40px;
+            display: none;
+            background: #fff;
+            border-radius: 10px;
+            border: solid;
+            width: fit-content;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weather</h1>
+
+    <input type="text" id="locationInput" placeholder="Enter city">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div class="weather-box" id="weatherBox"></div>
+
+    <script>
+        async function getWeather() {
+            const apiKey = "da60b5dd7dc54ba99b863221250207";
+            const location = document.getElementById("locationInput").value.trim();
+
+
+            const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}&aqi=yes`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+               
+                const weatherBox = document.getElementById("weatherBox");
+                weatherBox.style.display = "block";
+                weatherBox.innerHTML = `
+                    <h2>${data.location.name}, ${data.location.country}</h2>
+                    <p><strong>Local Time:</strong> ${data.location.localtime}</p>
+                    <p><strong>Temperature:</strong> ${data.current.temp_c} °C</p>
+                    <p><strong>Feels Like:</strong> ${data.current.feelslike_c} °C</p>
+                    <p><strong>Condition:</strong> ${data.current.condition.text} 
+                    <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
+                    <p><strong>Wind:</strong> ${data.current.wind_kph} kph (${data.current.wind_dir})</p>
+                    <p><strong>Pressure:</strong> ${data.current.pressure_mb} mb</p>
+                    <p><strong>Air Quality:</strong> PM2.5 - ${data.current.air_quality.pm2_5.toFixed(2)}</p>
+                `;
+
+            } catch (error) {
+                alert("Failed.");
+                console.error(error);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
