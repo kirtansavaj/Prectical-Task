@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roller</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+<style>
+  body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+input, button {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin: 8px;
+}
+
+.dice-area {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.die-box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+#total {
+  font-size: 20px;
+  margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+
+  <h2>Dice Roller</h2>
+
+  <label>Number of dices :
+    <input type="number" id="dice"  min="1" max="20">
+  </label><br>
+
+  <label>Number of sides :
+    <input type="number" id="sides"  min="2" max="20">
+  </label><br>
+
+  <button onclick="rollDice()">Roll</button>
+
+  <div id="total"></div>
+  <div class="dice-area" id="diceArea"></div>
+
+  <script>
+    function rollDice() {
+      const dice = Math.min(20, document.getElementById("dice").value);
+      const sides = Math.min(20, document.getElementById("sides").value);
+      const diceArea = document.getElementById("diceArea");
+      const totalDisplay = document.getElementById("total");
+
+      diceArea.innerHTML = "";
+      let total = 0;
+
+      for (let i = 0; i < dice; i++) {
+        const roll = Math.floor(Math.random() * sides) + 1;
+        total += roll;
+
+        const die = document.createElement("div");
+        die.className = "die-box";
+        die.textContent = roll;
+
+        diceArea.appendChild(die);
+      }
+
+      totalDisplay.textContent = "Total: " + total;
+    }
+  </script>
+
+</body>
+</html>
