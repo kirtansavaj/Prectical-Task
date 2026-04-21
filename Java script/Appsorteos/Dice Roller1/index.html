@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roller</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .dice-image {
+      width: 100px;
+      margin-top: 20px;
+    }
+
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Roll a Dice</h2>
+  <button onclick="rollDice()">Roll</button>
+
+  <div>
+    <img id="diceImage" src="1.svg" class="dice-image" alt="Dice Face">
+    <div id="result"></div>
+  </div>
+  
+<script>
+    function rollDice() {
+  const roll = Math.floor(Math.random() * 6) + 1;
+  const diceImage = document.getElementById("diceImage");
+  const resultText = document.getElementById("result");
+  
+  diceImage.src = roll + ".svg";
+  resultText.textContent = "rolled dice is " + roll;
+}
+</script>
+
+</body>
+</html>
