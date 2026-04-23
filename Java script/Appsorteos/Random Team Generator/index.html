@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Team Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .team {
+            margin-top: 20px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Random Team Generator</h2>
+        <label>Enter Title:</label>
+        <input type="text" id="title" >
+
+        <label>Enter Participant Name</label>
+        <textarea id="participants" rows="4"></textarea>
+
+        <label>Select Number of Teams (1-9):</label>
+        <select id="teamCount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+
+        <button onclick="generateTeams()">Generate Teams</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function generateTeams() {
+            var title = document.getElementById("title").value;
+            var names = document.getElementById("participants").value.split(/\n/);
+            var teamCount = parseInt(document.getElementById("teamCount").value);
+            var output = document.getElementById("output");
+            output.innerHTML = "";
+
+
+            for (var i = names.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = names[i];
+                names[i] = names[j];
+                names[j] = temp;
+            }
+
+            var teams = [];
+            for (var i = 0; i < teamCount; i++) {
+                teams.push([]);
+            }
+
+            for (var i = 0; i < names.length; i++) {
+                teams[i % teamCount].push(names[i]);
+            }
+
+            var titleElement = document.createElement("h2");
+            titleElement.innerText = title;
+            output.appendChild(titleElement);
+
+            for (var i = 0; i < teams.length; i++) {
+                var div = document.createElement("div");
+                div.className = "team";
+                var html = "<h3>Team " + (i + 1) + "</h3>";
+                for (var j = 0; j < teams[i].length; j++) {
+                    html += "<li>" + teams[i][j] + "</li>";
+                }
+                html += "</ul>";
+                div.innerHTML = html;
+                output.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
