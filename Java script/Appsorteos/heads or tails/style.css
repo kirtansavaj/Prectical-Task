@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+#result {
+  font-weight: bold;
+  margin: 25px 0;
+  min-height: 24px;
+}
+
+button {
+  background: #45a049;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#heads,
+#tails {
+  font-weight: bold;
+}
+
+.coin {
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  /* border: 2px solid #333; */
+}
+
+.flip {
+  animation: flip 1s ease-in-out;
+}
+
+/* @keyframes flip {
+0% { transform: rotateX(0deg); }
+25% { transform: rotateY(145deg); }
+50% { transform: rotateX(290deg); }
+75% { transform: rotateY(435deg); }
+100% { transform: rotateX(580deg); }
+
+} */
+
+/* @keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(2160deg);
+    transform: scale(2)
+
+  }
+} */
+
+@keyframes flip {
+  0%,
+  100% {
+    transform: rotateY(0deg) scale(1);
+  }
+  25%,
+  75% {
+    transform: rotateY(1080deg) scale(2);
+  }
+  50% {
+    transform: rotateY(2160deg) scale(2);
+  }
+}
