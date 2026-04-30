@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Distance Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <style>
+        * {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-color: #90ee9080;
+        }
+
+        .container {
+            
+            width: auto;
+            border: 1.5px solid #000;
+            padding: 2em;
+            border-radius: 1em;
+            background: #2e8b57AA;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Distance Converter</h2>
+        <label for="DistanceInput">Enter Your Distance:</label>
+        <input type="number" id="DistanceInput" /><br>
+
+        <br>
+        <label for="DistanceUnit">From:</label>
+
+        <select id="DistanceUnit">
+            <option value="KiloMeter">KiloMeter</option>
+            <option value="Centimeter">Centimeter</option>
+            <option value="Meter">Meter</option>
+            <option value="Foot">Foot</option>
+            <option value="Inch">Inch</option>
+            <option value="Yard">Yard</option>
+            <option value="Miles">Miles</option>
+            <option value="Milimeter">Milimeter</option>
+
+        </select><br><br>
+
+        <label for="DistanceUnitTo">To:</label>
+        <select id="DistanceUnitTo">
+            <option value="KiloMeter">KiloMeter</option>
+            <option value="Centimeter">Centimeter</option>
+            <option value="Meter">Meter</option>
+            <option value="Foot">Foot</option>
+            <option value="Inch">Inch</option>
+            <option value="Yard">Yard</option>
+            <option value="Miles">Miles</option>
+            <option value="Milimeter">Milimeter</option>
+        </select><br><br>
+
+        <h4 class="text-area" style="text-transform: capitalize;"></h4>
+
+        <button class="btn btn-light" onclick="convertDistance()">Convert</button>
+
+        <div id="results"></div>
+    </div>
+    <script>
+        function convertDistance() {
+            let DistanceInput = document.getElementById('DistanceInput').value;
+            let DistanceUnit = document.getElementById('DistanceUnit').value;
+            let DistanceUnitTo = document.getElementById('DistanceUnitTo').value;
+            let textarea = document.querySelector(".text-area");
+
+            
+            
+            if (DistanceUnit == DistanceUnitTo) {
+                return;
+            }
+            if (DistanceInput === "") {
+                return;
+            }
+            let DistanceInKm;
+
+            if (DistanceUnit == 'KiloMeter') 
+            {
+                DistanceInKm = DistanceInput;
+            } else if (DistanceUnit == 'Centimeter') 
+            {
+                DistanceInKm = DistanceInput / 100000;
+            } else if (DistanceUnit == 'Meter') 
+            {
+                DistanceInKm = DistanceInput / 1000;
+            } else if (DistanceUnit == 'Foot') 
+            {
+                DistanceInKm = DistanceInput / 3281;
+            } else if (DistanceUnit == 'Inch') 
+            {
+                DistanceInKm = DistanceInput / 39370;
+            } else if (DistanceUnit == 'Yard') 
+            {
+                DistanceInKm = DistanceInput / 1094;
+            } else if (DistanceUnit == 'Miles') 
+            {
+                DistanceInKm = DistanceInput * 1.609;
+            }
+            else if (DistanceUnit == 'Milimeter') 
+            {
+                DistanceInKm = DistanceInput / 1000000;
+            }
+            else 
+            {
+                DistanceInKm = 0;
+            }
+
+
+
+            let convertedDistance;
+            if (DistanceUnitTo == 'KiloMeter') 
+            {
+                convertedDistance = DistanceInKm;
+            } else if (DistanceUnitTo == 'Centimeter') 
+            {
+                convertedDistance = DistanceInKm * 100000;
+            } else if (DistanceUnitTo == 'Meter') 
+            {
+                convertedDistance = DistanceInKm * 1000;
+            } else if (DistanceUnitTo == 'Foot') 
+            {
+                convertedDistance = DistanceInKm * 3281;
+            } else if (DistanceUnitTo == 'Inch') 
+            {
+                convertedDistance = DistanceInKm * 39370;
+            } else if (DistanceUnitTo == 'Yard') 
+            {
+                convertedDistance = DistanceInKm * 1094;
+            } else if (DistanceUnitTo == 'Miles') 
+            {
+                convertedDistance = DistanceInKm / 1.609;
+            }
+            else if (DistanceUnitTo == 'Milimeter') 
+            {
+                convertedDistance = DistanceInKm * 1000000;
+            }
+            else 
+            {
+                convertedDistance = 0;
+            }
+
+            textarea.innerHTML = "converted Distance To = " + convertedDistance;
+            // document.write("converted Distance To = " + convertedDistance);
+        }   
+    </script>
+</body>
+
+</html>
