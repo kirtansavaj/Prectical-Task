@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Area Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <style>
+        * {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .container {
+            width: 500px;
+            border: 1.5px solid #a75656;
+            padding: 2em;
+            border-radius: 1em;
+            background: #0000004b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Area Converter</h2>
+        <label for="AreaInput">From:</label>
+        <input type="number" id="AreaInput" /><br>
+        
+        <br>
+        <label for="AreaUnit">From:</label>
+
+        <select id="AreaUnit">
+            <option value="square meter">square meter</option>
+            <option value="square kilometer">square kilometer</option>
+            <option value="square centimeter">square centimeter</option>
+            <option value="square millimeter">square millimeter</option>
+            <option value="square micrometer">square micrometer</option>
+            <option value="hectare">hectare</option>
+            <option value="acre ">acre </option>
+            <option value="square mile">square mile</option>
+            <option value="square yard">square yard</option>
+            <option value="square foot">square foot</option>
+            <option value="square inch">square inch</option>
+            <option value="square hectometer">square hectometer</option>
+            <option value="square dekameter">square dekameter</option>
+            <option value="square decimeter">square decimeter</option>
+            <option value="square nanometer">square nanometer</option>
+            <option value="are">are</option>
+            <option value="barn">barn</option>
+            <option value="square mile (US survey)">square mile (US survey)</option>
+            <option value="square foot (US survey)">square foot (US survey)</option>
+            <option value="circular inch">circular inch</option>
+            <option value="township ">township </option>
+            <option value="section ">section </option>
+            <option value="acre (US survey)">acre (US survey)</option>
+            <option value="rood ">rood </option>
+            <option value="square chain">square chain</option>
+            <option value="square rod">square rod</option>
+            <option value="square rod (US survey)">square rod (US survey)</option>
+            <option value="square perch">square perch</option>
+            <option value="square pole">square pole</option>
+            <option value="square mil">square mil</option>
+            <option value="homestead">homestead</option>
+            <option value="sabin">sabin</option>
+            <option value="arpent">arpent</option>
+            <option value="cuerda">cuerda</option>
+            <option value="plaza">plaza</option>
+            <option value="varas castellanas cuad">varas castellanas cuad</option>
+            <option value="varas conuqueras cuad">varas conuqueras cuad</option>
+            <option value="Electron cross section">Electron cross section</option>
+        </select><br><br>
+
+        <label for="AreaUnitTo">To:</label>
+        <select id="AreaUnitTo">
+            <option value="square meter">square meter</option>
+            <option value="square kilometer">square kilometer</option>
+            <option value="square centimeter">square centimeter</option>
+            <option value="square millimeter">square millimeter</option>
+            <option value="square micrometer">square micrometer</option>
+            <option value="hectare">hectare</option>
+            <option value="acre ">acre </option>
+            <option value="square mile">square mile</option>
+            <option value="square yard">square yard</option>
+            <option value="square foot">square foot</option>
+            <option value="square inch">square inch</option>
+            <option value="square hectometer">square hectometer</option>
+            <option value="square dekameter">square dekameter</option>
+            <option value="square decimeter">square decimeter</option>
+            <option value="square nanometer">square nanometer</option>
+            <option value="are">are</option>
+            <option value="barn">barn</option>
+            <option value="square mile (US survey)">square mile (US survey)</option>
+            <option value="square foot (US survey)">square foot (US survey)</option>
+            <option value="circular inch">circular inch</option>
+            <option value="township ">township </option>
+            <option value="section ">section </option>
+            <option value="acre (US survey)">acre (US survey)</option>
+            <option value="rood ">rood </option>
+            <option value="square chain">square chain</option>
+            <option value="square rod">square rod</option>
+            <option value="square rod (US survey)">square rod (US survey)</option>
+            <option value="square perch">square perch</option>
+            <option value="square pole">square pole</option>
+            <option value="square mil">square mil</option>
+            <option value="homestead">homestead</option>
+            <option value="sabin">sabin</option>
+            <option value="arpent">arpent</option>
+            <option value="cuerda">cuerda</option>
+            <option value="plaza">plaza</option>
+            <option value="varas castellanas cuad">varas castellanas cuad</option>
+            <option value="varas conuqueras cuad">varas conuqueras cuad</option>
+            <option value="Electron cross section">Electron cross section</option>
+
+        </select><br><br>
+
+        <script>function convertArea() {
+                let AreaInput = parseFloat(document.getElementById('AreaInput').value);
+                let AreaUnit = document.getElementById('AreaUnit').value;
+                let AreaUnitTo = document.getElementById('AreaUnitTo').value;
+                let textarea = document.querySelector(".text-area");
+
+                if (AreaUnit === AreaUnitTo) {
+                    return;
+                }
+
+                const toSquareMeters = {
+                    'square meter': 1,
+                    'square kilometer': 1e6,
+                    'square centimeter': 0.0001,
+                    'square millimeter': 0.000001,
+                    'square micrometer': 1e-12,
+                    'hectare': 10000,
+                    'acre': 4046.8564224,
+                    'square mile': 2.59e6,
+                    'square yard': 0.83612736,
+                    'square foot': 0.09290304,
+                    'square inch': 0.00064516,
+                    'square hectometer': 10000,
+                    'square dekameter': 100,
+                    'square decimeter': 0.01,
+                    'square nanometer': 1e-18,
+                    'are': 100,
+                    'barn': 1e-28,
+                    'square mile (US survey)': 2589988.110336,
+                    'square foot (US survey)': 0.09290341161,
+                    'circular inch': 0.0005067075,
+                    'township': 93239571.9721,
+                    'section': 2589988.110336,
+                    'acre (US survey)': 4046.872609874252,
+                    'rood': 1011.7141056,
+                    'square chain': 404.68564224,
+                    'square rod': 25.29285264,
+                    'square rod (US survey)': 25.29285264,
+                    'square perch': 25.29285264,
+                    'square pole': 25.29285264,
+                    'square mil': 6.4516e-10,
+                    'homestead': 647497.027584,
+                    'sabin': 0.09290304,
+                    'arpent': 3418.89,
+                    'cuerda': 3930.395625,
+                    'plaza': 6400,
+                    'varas castellanas cuad': 0.6987375,
+                    'varas conuqueras cuad': 6.96849375,
+                    'Electron cross section': 2.8179403227e-29,
+                };
+
+                let a = AreaInput * (toSquareMeters[AreaUnit]);
+
+                let convertedArea = a / (toSquareMeters[AreaUnitTo]);
+
+                textarea.innerHTML = `Converted area: ${convertedArea}`;
+            }
+        </script>
+
+        <h4 class="text-area" style="text-transform: capitalize;"></h4>
+
+        <button class="btn btn-light" onclick="convertArea()">Convart</button>
+
+        <div id="results"></div>
+    </div>
+
+</body>
+
+</html>
