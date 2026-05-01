@@ -1,0 +1,34 @@
+<!-- Create a button that changes its text when clicked. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <button id="myButton" onclick="textChange()">Click Me</button>
+
+    <!-- <script>    
+        function textChange(){
+            alert("hello");
+            console.log('I am console');
+
+            const a = 2;
+            const b = 4;
+            console.log(a+b);
+            
+        }
+       
+    </script> -->
+    <script>
+        function textChange() {
+            let button = document.getElementById('myButton');
+            button.textContent = "Clicked!";
+        }
+    </script>
+</body>
+
+</html>

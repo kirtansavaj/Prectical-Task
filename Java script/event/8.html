@@ -1,0 +1,51 @@
+<!-- Implement a scroll event that changes the background color of the navbar when the user scrolls down the page.  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 2000px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: transparent;
+      /* transition: background-color 0.3s ease; */
+      z-index: 1000;
+      color: #000;
+    }
+    
+    .navbar.scrolled {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="logo">My Navbar</div>
+  </nav>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }); 
+  </script>
+</body>
+</html>
+

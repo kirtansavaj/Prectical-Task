@@ -1,0 +1,102 @@
+<!-- Click Counter Button -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Button</title>
+
+    <style>     
+        body {
+            background-color: #f0e7d5;
+
+            color: black;
+            align-content: center;
+            height: 700px;
+            width: auto;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: large;
+        }
+
+        button {
+            /* background-color: red; */
+            height: auto;
+            width: 100px;
+            margin: 8px;
+            color: white;
+
+            padding: 12px;
+            border-radius: 20%;
+            box-shadow: black 5px 8px 5px;
+            font-size: large;
+        }
+
+        .Count {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .Plus {
+            background-color: #212842;
+            font-size: 30px;
+        }
+
+        .Minous {
+            background-color: #212842;
+            font-size: 30px;
+
+        }
+
+        #countDisplay {
+            background-color: #2f4155;
+            height: 50px;
+            width: 30%;
+            color: white;
+
+            justify-content: center;
+            font-size: 24px;
+            align-content: center;
+            margin: 8px;
+            padding: 12px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button id ="counterButton">Click Me</button> -->
+
+    <div>
+        <div class="Count">
+            <p id="countDisplay">Your Totle Count is 0</p>
+        </div>
+        <div>
+            <button class="Plus" id="Plus">+</button>
+            <button class="Minous" id="Minous">-</button>
+        </div>
+
+    </div>
+
+    <script>
+        let count = 0;
+        const counterButton = document.getElementById("Plus");
+        // const Plus = document.getElementById("Plus");
+        const counterButton2 = document.getElementById("Minous");
+        // const countDisplay = document.getElementById("countDisplay");
+
+        counterButton.addEventListener("click", function () {
+            count++;
+            countDisplay.textContent = `Your Totle Count is ${count}`;
+        });
+        counterButton2.addEventListener("click", function () {
+            count--;
+            countDisplay.textContent = `Your Totle Count is ${count}`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!-- Implement a feature where double-clicking on a paragraph changes its font size.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p ondblclick="bigText(this)"onclick="normalText(this)">Global warming refers to the long-term rise in the Earth's average surface temperature, primarily caused by the increased concentration of greenhouse gases in the atmosphere. This increase is largely due to human activities like burning fossil fuels, deforestation, and industrial processes, which release gases like carbon dioxide that trap heat and prevent it from escaping. The consequences of global warming are far-reaching, including melting glaciers and ice caps, rising sea levels, extreme weather events, and changes in ecosystems, all of which pose significant threats to both human societies and the natural world. </p>
+<script>
+    function bigText(element) {
+        element.style.fontSize = "30px";
+    }  
+    function normalText(element) {
+        element.style.fontSize = "16px";
+    }       
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!-- Build a dropdown that filters a list of items based on the selected option.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .item {
+      margin: 5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <label for="filterDropdown">Filter Items:</label>
+  <select id="filterDropdown">
+    <option value="all">All</option>
+    <option value="fruit">Fruits</option>
+    <option value="vegetable">Vegetables</option>
+  </select>
+
+  <ul id="itemList">
+    <li class="item fruit">Apple</li>
+    <li class="item fruit">Banana</li>
+    <li class="item vegetable">Carrot</li>
+    <li class="item vegetable">Broccoli</li>
+    <li class="item fruit">Orange</li>
+    <li class="item vegetable">Spinach</li>
+    <li class="item vegetable">Broccoli</li>
+    <li class="item fruit">Grapes</li>  
+    <li class="item vegetable">Potato</li>
+    <li class="item fruit">Mango</li>
+    <li class="item vegetable">Cucumber</li>
+    <li class="item fruit">Pineapple</li>
+    <li class="item vegetable">Tomato</li>
+    <li class="item fruit">Strawberry</li>
+    <li class="item vegetable">Onion</li>
+    <li class="item fruit">Blueberry</li>
+    <li class="item vegetable">Bell Pepper</li>
+    <li class="item fruit">Peach</li>
+    <li class="item vegetable">Zucchini</li>
+    <li class="item fruit">Cherry</li>
+    <li class="item fruit">Watermelon</li>
+  </ul>
+
+  <script>
+    const dropdown = document.getElementById('filterDropdown');
+    const items = document.querySelectorAll('.item');
+
+    dropdown.addEventListener('change', () => {
+      const filter = dropdown.value;
+
+      items.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

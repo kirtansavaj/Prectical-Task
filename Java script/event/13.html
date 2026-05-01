@@ -1,0 +1,68 @@
+<!-- Create an input field that shows suggestions as the user types (autocomplete). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .autocomplete-container {
+      position: relative;
+      width: 300px;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border: 1px solid #000000;
+      background: #fff;
+      z-index: 1000;
+      max-height: auto;
+      overflow-y: auto;
+    }
+
+    .suggestion-item {
+      padding: 1px;
+      cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="autocomplete-container">
+    <input type="text" id="autocomplete-input" placeholder="Type something..." />
+    <div class="suggestions" id="suggestions"></div>
+  </div>
+
+  <script>
+    const suggestions = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape', 'Kiwi', 'Lemon', 'Mango', 'Orange', 'Peach', 'Pear', 'Pineapple', 'Strawberry', 'Watermelon', 'Blueberry', 'Raspberry', 'Blackberry', 'Papaya', 'Guava', 'Lychee', 'Dragonfruit', 'Passionfruit', 'Tangerine', 'Coconut', 'Apricot', 'Fig', 'Plum', 'Pomegranate', 'Cantaloupe', 'Honeydew'];
+
+    const input = document.getElementById('autocomplete-input');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    input.addEventListener('input', () => {
+      const query = input.value.toLowerCase();
+      suggestionsContainer.innerHTML = '';
+
+      if (query) {
+        const filteredSuggestions = suggestions.filter(item => item.toLowerCase().includes(query));
+        filteredSuggestions.forEach(suggestion => {
+          const div = document.createElement('div');
+          div.textContent = suggestion;
+          div.classList.add('suggestion-item');
+          div.addEventListener('click', () => {
+            input.value = suggestion;
+            suggestionsContainer.innerHTML = '';
+          });
+          suggestionsContainer.appendChild(div);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

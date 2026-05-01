@@ -1,0 +1,23 @@
+<!-- Live Character Count -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+</head>
+<body>
+    <textarea name="text" id="text"></textarea>
+    <p id = "countcharacter">total character is 0.</p>
+    <script>
+        let count = 0;
+        const text = document.getElementById("text");
+        const countcharacter = document.getElementById("countcharacter");
+        text.addEventListener("input", function(){
+            countcharacter.textContent = "characters : " + text.value.length;
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- Theme Switcher (Light/Dark Mode) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Switche</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="lightButton">Light Mode</button>
+    <button id="darkButton">Dark Mode</button>
+
+    <script>
+        const lightButton = document.getElementById("lightButton");
+        const darkButton = document.getElementById("darkButton");
+
+        lightButton.addEventListener("click", function () {
+            document.body.style.backgroundColor = "lightgreen";
+        });
+
+        darkButton.addEventListener("click", function () {
+            document.body.style.backgroundColor = "darkgreen";
+        });
+
+    </script>
+</body>
+
+</html>

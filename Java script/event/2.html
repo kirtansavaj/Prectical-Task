@@ -1,0 +1,29 @@
+<!-- Implement a form validation that alerts the user when they submit an empty form. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <input type="text" id="myInput">
+    <button id="myButton" onclick="textChange()">Submit</button>
+
+    <script>
+        function textChange() {
+            let input = document.getElementById('myInput');
+            let button = document.getElementById('myButton');
+
+            if (input.value === "") {
+                alert("Please enter a value");
+            } else {
+                button.textContent = "Clicked! ";
+            }
+        }
+    </script>
+</body>
+
+</html>
