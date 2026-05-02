@@ -1,0 +1,107 @@
+<!-- Random Quote Generator -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Pokemon</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bfa7a7;
+    margin: 0;                     
+    padding: 20px;                 
+}
+
+.q {
+    background-color: white;     
+    border-radius: 5px;            
+    padding: 20px;                
+    width:auto;
+    margin: auto;                  
+    text-align: center;             
+    font-size: 20px;    
+}
+.a {
+    background-color: white;     
+    border-radius: 5px;            
+    padding: 20px;                
+    width:auto;
+    margin: auto;                  
+    text-align: center;             
+    font-size: 20px;    
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="q"></div><br>
+    <div class="a"></div>
+
+
+    <!-- <script>
+        const url = "https://thequoteshub.com/api/random-quote";
+
+async function requestData() {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const q = document.querySelector(".q");
+        q.innerText = data.text;
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+requestData();
+
+function requestDataSync() {
+    fetch(url)
+        .then((res) => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+        .finally(() => console.log("Completed"));
+}
+
+requestDataSync();
+    </script> -->
+
+
+
+    <script>
+        const url = "https://thequoteshub.com/api/random-quote";
+
+async function requestData() {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const q = document.querySelector(".q");
+        q.innerText = data.text;
+        const a = document.querySelector(".a");
+        a.innerText =data.author;
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+requestData();
+
+function requestDataSync() {
+    fetch(url)
+        .then((res) => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+        .finally(() => console.log("Completed"));
+}
+
+// requestDataSync();
+    </script>
+    
+</body>
+</html>
