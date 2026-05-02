@@ -1,0 +1,46 @@
+<!-- Color Theme Switcher -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Switche</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: default;
+            font-size: 24px;
+            margin: 10px;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="colourbutton">Press Here For Change Theme</button>
+
+
+
+    <script>
+        const Colors = ["black", "blue", "yellow", "red", "pink", "green", "purple", "brown", "gray"]
+        let Currentindex = 0;
+        const button = document.getElementById("colourbutton")
+        button.addEventListener("click", function () {
+            const button = document.getElementById("colourbutton");
+            document.body.style.backgroundColor = Colors[Currentindex];
+            if (Currentindex < Colors.length - 1) {
+                Currentindex++;
+            } else {    
+                Currentindex = 0;
+            }
+        });
+    </script>
+</body>
+
+</html>
