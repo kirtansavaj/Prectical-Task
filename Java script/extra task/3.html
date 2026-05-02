@@ -1,0 +1,37 @@
+<!-- Live Character Counter -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+    <style>
+body{
+    text-align: center;
+    padding: 20%;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.countcharacter{
+    text-align: center;
+}
+.text{
+    padding: 15%;
+    font-size: large;
+}
+    </style>
+</head>
+<body>
+    <textarea  id="text"></textarea>
+    <p id = "countcharacter">Total character is 0</p>
+    <script>
+        let count = 0;
+        const text = document.getElementById("text");
+        const countcharacter = document.getElementById("countcharacter");
+        text.addEventListener("input", function(){
+        countcharacter.textContent ="Total character is : " + text.value.length;
+        });
+    </script>
+</body>
+</html>
