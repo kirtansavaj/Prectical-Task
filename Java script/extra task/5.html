@@ -1,0 +1,55 @@
+<!-- Form Validation -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 3%;
+            font-size: large;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h2>Form Validation</h2>
+    <form name="myForm" onsubmit="Formvalidate()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="number">Number:</label>
+        <input type="number" id="number" name="Number"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function Formvalidate() {
+
+            let name = document.forms["myForm"]["name"].value;
+            let number = document.forms["myForm"]["number"].value;
+
+            if (name === "" && number === "") {
+                alert("Name and Number are not filled");
+                return;
+            } else if (name === "") {
+                alert("Name is not filled");
+                return;
+            } else if (number === "") {
+                alert("Number is not filled");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+            return;
+        }
+
+    </script>
+</body>
+
+</html>
