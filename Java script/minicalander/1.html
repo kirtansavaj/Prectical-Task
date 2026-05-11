@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Calendar</title>
+  <link rel="stylesheet" href="frontend.css" />
+</head>
+<body>
+  <div class="calendar">
+    <div class="left-section">
+      <div class="date" id="date"></div>
+      <div class="day" id="day"></div>
+    </div>
+    <div class="right-section">
+      <div class="month" id="month"></div>
+      <div class="year" id="year"></div>
+    </div>
+  </div>
+  <script>
+    const dateEl = document.getElementById("date");
+    const dayEl = document.getElementById("day");
+    const monthEl = document.getElementById("month");
+    const yearEl = document.getElementById("year");
+
+    const now = new Date();
+
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    dateEl.textContent = now.getDate();
+    dayEl.textContent = days[now.getDay()];
+    monthEl.textContent = months[now.getMonth()];
+    yearEl.textContent = now.getFullYear();
+
+  </script>
+</body>
+
+</html>

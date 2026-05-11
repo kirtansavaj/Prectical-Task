@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(177, 109, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .calendar {
+    display: flex;
+    width: 280px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  }
+  
+  .left-section {
+    background-color: #ffffff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-section {
+    background-color: #ffaca7;
+    color: white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .date {
+    font-size: 64px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .day {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .month {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  .year {
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+
+
+
+
+
+
+
+
+
