@@ -1,0 +1,16 @@
+document.write("Crow<br>");
+document.write("Sparrow<br>");
+document.write("Robin<br>");
+document.write("Canary<br>");
+document.write("Blue Jay<br>");
+document.write("Wren<br>");
+document.write("Warbler<br>");
+document.write("Eagle<br>");
+document.write("Hawk<br>");
+document.write("Vulture<br>");
+document.write("Falcon<br>");
+document.write("Kestrel<br>");
+document.write("Swan<br>");
+document.write("Goose<br>");
+document.write("Penguin<br>");
+document.write("Flamingo<br>");
