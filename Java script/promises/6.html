@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odd Or Even</title>
+</head>
+<body>
+  <p id="result"></p>
+  <p id="result1"></p>
+
+  <script>
+    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById("result");
+
+
+    let myPromise = new Promise(function (resolve, reject) {
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => {
+          if (response) {
+            resolve("ok");
+          } else {
+            reject("error");
+          }
+        })
+        .catch(() => {
+          reject("error");
+        });
+    });
+
+
+    let checkAPI = new Promise(function(resolve, reject) {
+      fetch("https://meme-api.com/gimme")
+        .then(response => {
+          if (response) {
+            resolve("ok");
+          } else {
+            reject("error");
+          }
+        })
+        .catch(() => {
+          reject("error");
+        });
+    });
+
+    myPromise
+      .then(message => {
+        resultElement.textContent = message; 
+      })
+      .catch(message => {
+        resultElement.textContent = message;
+      });
+
+      api
+      .then(result => {
+        document.getElementById("result").textContent = result;
+      })
+      .catch(error => {
+        document.getElementById("result").textContent = error;
+      });
+  </script>
+</body>
+</html>
