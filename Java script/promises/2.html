@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promises</title>
+</head>
+
+<body>
+  <p id="result"></p>
+  <script>
+    let myPromise = new Promise(function (resolve, reject) {
+      const currentDate = new Date();
+
+      const currentHour = currentDate.getHours();
+      const currentMinutes = currentDate.getMinutes();
+      const time = `${currentHour}:${currentMinutes}`;
+      const currentTotalMinutes1 = currentHour * 60 + currentMinutes;
+document.write(currentTotalMinutes1)
+
+
+
+      let setHours = 10;
+      let setMinutes = 33;
+      const SetMinutes2 = `${setHours}:${setMinutes}`;
+      const setTotalMinutes1 = setHours * 60 + setMinutes;
+      document.write(setTotalMinutes1);
+
+
+
+
+
+      // if (time >= SetMinutes1) {
+      if (currentTotalMinutes1 <= setTotalMinutes1 || currentTotalMinutes1 <= setTotalMinutes1) {
+        resolve("ok");
+      } else {
+        reject("error");
+      }
+    });
+
+    myPromise
+      .then(function (result) {
+        document.getElementById("result").innerText = result;
+      })
+      .catch(function (reject) {
+        document.getElementById("result").innerText = reject;
+      });
+
+  </script>
+</body>
+
+</html>
