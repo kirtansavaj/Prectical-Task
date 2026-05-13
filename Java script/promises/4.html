@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odd Or Even</title>
+</head>
+<body>
+  <p id="result"></p>
+
+  <script>
+    const resultElement = document.getElementById("result");
+
+    let myPromise = new Promise(function (resolve, reject) {
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => {
+          if (response.ok) {
+            resolve("ok");
+          } else {
+            reject("error");
+          }
+        })
+        .catch(() => {
+          reject("error");
+        });
+    });
+
+    myPromise
+      .then(message => {
+        resultElement.textContent = message; 
+      })
+      .catch(message => {
+        resultElement.textContent = message;
+      });
+  </script>
+</body>
+</html>
