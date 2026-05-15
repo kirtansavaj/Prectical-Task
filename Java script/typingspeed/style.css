@@ -1,0 +1,61 @@
+body {
+  background-color: #e0f86b;
+  color: black;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading {
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: black 5px 8px 5px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.timer,
+.errors,
+.accuracy,
+.cpm,
+.wpm {
+  background-color: #ccda46;
+  height: 60px;
+  width: 70px;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 20%;
+  box-shadow: black 5px 8px 5px;
+}
+
+.quote {
+  background-color: #ccda46;
+  font-size: 24px;
+  margin: 10px;
+  padding: 25px;
+  box-shadow: black 5px 8px 5px;
+}
+.input_area {
+  background-color: #ccda46;
+  height: 80px;
+  width: 40%;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px;
+  padding: 20px;
+  box-shadow: black 5px 8px 5px;
+}
+
+.restart_btn {
+  display: none;
+  background-color: #fefff5;
+  font-size: 24px;
+  padding: 10px;
+  border: 0px;
+  box-shadow: black 5px 8px 5px;
+}
